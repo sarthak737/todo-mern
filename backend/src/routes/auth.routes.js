@@ -16,7 +16,6 @@ authRouter.post("/login", async (req, res) => {
   }
 
   let token = await user.generateToken(user._id);
-  req.user = user;
   return res
     .status(201)
     .cookie("token", token, { expires: process.env.TOKEN_EXIRY })

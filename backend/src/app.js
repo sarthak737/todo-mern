@@ -5,6 +5,7 @@ import { todoRouter } from "./routes/todo.routes.js";
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors({ origin: process.env.CORS_ORIGIN }));
 app.use("/auth", authRouter);
 app.use("/todo", todoRouter);
 export { app };
